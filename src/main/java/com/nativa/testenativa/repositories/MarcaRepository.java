@@ -8,6 +8,6 @@ import com.nativa.testenativa.domain.Marca;
 @Repository
 public interface MarcaRepository extends JpaRepository<Marca ,Integer> {
 
-	Marca findOne(Integer marcaid);
+	
 
 }

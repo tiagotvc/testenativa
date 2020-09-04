@@ -13,14 +13,15 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="TB_MARCA")
+@Table(name="pg_default")
 public class Marca implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer marcaid;
 	private String nome;
+	
 	
 	@ManyToMany(mappedBy ="marcas")
 	public List<Patrimonio> patrimonios = new ArrayList<>();

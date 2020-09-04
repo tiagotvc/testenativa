@@ -8,10 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -20,13 +22,14 @@ public class Patrimonio implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	private Integer nTombo;
 	private String nome;
 	private Integer marcaid;
 	private String descricao;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PATRIMONIO_MARCA",
 	      joinColumns = @JoinColumn(name = "patrimonio_id"),
