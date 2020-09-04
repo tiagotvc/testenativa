@@ -1,0 +1,42 @@
+CREATE DATABASE testedb;
+
+USE testedb;
+
+CREATE TABLE patrimonio_db(
+nTombo int(4) AUTO_INCREMENT,
+nome varchar(30) NOT NULL,
+PRIMARY KEY (nTombo),
+
+);
+
+
+
+CREATE TABLE marca_db(
+id int(4) AUTO_INCREMENT,
+nome varchar(30) NOT NULL,
+marcaid int(100) NOT NULL,
+PRIMARY KEY id
+
+);
+
+ALTER TABLE patrimonio_db ADD CONSTRAINT `fk_idmarca` FOREIGN KEY ( `marcaid` ) REFERENCES `cidade` ( `marcaid` ) ;
+
+ALTER TABLE patrimonio_db MODIFY COLUMN marcaid NOT NULL;
+
+
+
+CREATE TABLE usuarios_db(
+id int(4) AUTO_INCREMENT,
+nome varchar(30) NOT NULL,
+email varchar(30) NOT NULL,
+senha int(9) NOT NULL
+PRIMARY KEY id
+
+);
+
+ALTER TABLE usuarios_db ALTER COLUMN email ADD CONSTRAINT UNIQUE;
+
+
+
+
+
